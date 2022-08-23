@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Manrope:300,400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* 상단메뉴 */
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    height: 80px;
+}
+
+.header-inner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1070px;
+    position: relative;
+}
+.logo {
+    margin: 0;
+    position: absolute;
+    left: 0;
+}
+.logoa a{}
+
+.logo a img {
+    width: 200px;
+    height: 70px;
+}
+
+.header-menu {}
+
+.header-menu-nav {
+    transition: 0.5s; 
+    padding-bottom: 12px;
+}
+.header-nav-list {
+    display: flex;
+    text-align: center;
+}
+
+.header-nav-item {
+    padding: 0 10px;
+}
+.header-nav-item-link{
+    display: block;
+    padding: 24px 12px;
+}
+.header-nav-item-link-text {
+    font-size: 18px;
+    line-height: 1em;
+    position: relative;
+}
+
+/* Section Main */
+.scroll {
+    height: 4315.5px;
+}
+.top-contents {
+    position: relative;
+    height: 100vh;
+    
+}
+.top-contents-inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://cdn.imweb.me/thumbnail/20200824/46c56d5ea4ab1.jpg');
+    background-size: cover;
+}
+
+.test {
+    height: 100vh;
+}
+
+
+
+/* .header-nav-item.selected .header-nav-item-link-text:after, 
+.header-nav-item:hover, 
+.header-nav-item-link-text:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background-color: #fff;
+} */
+
+
+.header-nav-item-link-text.selected::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.header-nav-item-link-text:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background-color: #fff;
+}
+
