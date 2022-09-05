@@ -4,96 +4,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- css -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/responsive.css">
 
     <!-- js -->
-    <script src="/index.js"></script>
+    <script src="js/index.js"></script>
+    
 
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-
+    
     <title>hwahae-clone</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <div class="logo">
-                <a href="#">
-                    <img src="/img/FLAB.svg" alt="">
-                </a>
+    <div id="warp">
+
+        <header class="header">
+            <div class="header-inner" id="header_inner">
+                <div class="header-title" id="header_title">
+                    <a href="#">
+                        <svg viewBox="0 0 58 29" xmlns="http://www.w3.org/2000/svg" width="58" height="29">
+                            <path d="m28.42 25.337-1.712-.032c-1.554-.086-2.702-.714-3.411-1.866-.66-1.073-.8-2.38-.8-3.285V8.28a.25.25 0 0 0-.25-.25h-2.356a.25.25 0 0 0-.25.25v11.874c0 2.306.646 4.265 1.866 5.664 1.225 1.403 2.997 2.206 5.123 2.322h1.79a.25.25 0 0 0 .249-.25v-2.304a.25.25 0 0 0-.25-.25m-12.021.844h-.16.033zm-8.115-7.45a5.165 5.165 0 0 1-5.158-5.16 5.162 5.162 0 0 1 5.158-5.154 5.159 5.159 0 0 1 5.153 5.155 5.162 5.162 0 0 1-5.153 5.16m8.646 7.467c-.002 0-.267.006-.659.006-.427 0-1.064-.007-1.675-.038-2.057-.107-2.91-.4-3.81-1.307-.691-.699-1.08-1.849-1.156-3.373l-.001-.02.021-.005a8.03 8.03 0 0 0 4.734-2.707 8.001 8.001 0 0 0 1.908-5.183c0-4.418-3.592-8.011-8.008-8.011C3.864 5.56.27 9.153.27 13.57a8.03 8.03 0 0 0 6.474 7.865l.019.003v.019c.083 2.302.738 4.13 1.95 5.386 1.34 1.387 3.318 2.09 5.885 2.09h2.332a.188.188 0 0 0 .188-.187v-2.362a.187.187 0 0 0-.188-.186M4.604 3.067h7.264a.26.26 0 0 0 .26-.26V.613a.26.26 0 0 0-.26-.26H4.604a.26.26 0 0 0-.26.26v2.192a.26.26 0 0 0 .26.261m32.763 21.362a5.055 5.055 0 0 1-5.048-5.051 5.053 5.053 0 0 1 5.048-5.046 5.05 5.05 0 0 1 5.044 5.046 5.053 5.053 0 0 1-5.044 5.05m0-12.952c-4.359 0-7.903 3.545-7.903 7.902 0 4.36 3.544 7.907 7.903 7.907 4.357 0 7.9-3.546 7.9-7.907 0-4.357-3.543-7.902-7.9-7.902m-3.553-2.453h7.263a.26.26 0 0 0 .26-.262V6.57a.26.26 0 0 0-.26-.262h-7.263a.261.261 0 0 0-.26.262v2.19c0 .144.116.262.26.262m18.456 1.395c-2.894 0-5.162 2.326-5.162 5.293v12.263c0 .09.074.164.165.164H49.8c.09 0 .164-.074.164-.164V15.71c0-1.388.991-2.437 2.304-2.437 1.313 0 2.303 1.049 2.303 2.437v12.263c0 .09.073.164.164.164h2.529c.09 0 .164-.074.164-.164V15.71c0-2.967-2.267-5.293-5.16-5.293" fill="#5EDFDF" fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="header-menu" id="header_menu">
+                    <nav class="header-nav">
+                        <ul class="header-nav-list">
+                            <li class="header-nav-item">
+                                <a href="#" class="header-nav-item-link">
+                                    <span class="header-nav-item-link-text selected">제품소개</span>
+                                </a>
+                            </li>
+                            <li class="header-nav-item">
+                                <a href="#" class="header-nav-item-link">
+                                    <span class="header-nav-item-link-text">회사소개</span>
+                                </a>
+                            </li>
+                            <li class="header-nav-item">
+                                <a href="#" class="header-nav-item-link">
+                                    <span class="header-nav-item-link-text">채용</span>
+                                </a>
+                            </li>
+                            <li class="header-nav-item">
+                                <a href="#" class="header-nav-item-link">
+                                    <span class="header-nav-item-link-text">뉴스</span>
+                                </a>
+                            </li>
+                            <li class="header-nav-item">
+                                <a href="#" class="header-nav-item-link">
+                                    <span class="header-nav-item-link-text">공지</span>
+                                </a>
+                            </li>
+                            <li class="header-nav-item">
+                                <a href="#" class="header-nav-item-link">
+                                    <span class="header-nav-item-link-text">블로그</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <button type="button" class="header-btn" id="header_btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 17a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2h16zm0-6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2h16zm0-6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2h16z" fill="#fff"></path>
+                    </svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                        <path d="m7.05 5.636 4.95 4.95 4.95-4.95a1 1 0 0 1 1.32-.083l.094.083a1 1 0 0 1 0 1.414L13.414 12l4.95 4.95a1 1 0 1 1-1.414 1.414L12 13.414l-4.95 4.95a1 1 0 0 1-1.32.083l-.094-.083a1 1 0 0 1 0-1.414l4.95-4.95-4.95-4.95A1 1 0 0 1 7.05 5.636z" fill="#222"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="header-menu">
-                <nav class="header-nav">
-                    <ul class="header-nav-list">
-                        <li class="header-nav-item">
-                            <a href="#" class="header-nav-item-link">
-                                <span class="header-nav-item-link-text selected" id="product">
-                                    제품소개
-                                </span>
-                            </a>
-                        </li>                        
-                        <li class="header-nav-item">
-                            <a href="#" class="header-nav-item-link">
-                                <span class="header-nav-item-link-text">
-                                    회사소개
-                                </span>
-                            </a>
-                        </li>
-                        <li class="header-nav-item">
-                            <a href="#" class="header-nav-item-link">
-                                <span class="header-nav-item-link-text">
-                                    채용
-                                </span>
-                            </a>
-                        </li>
-                        <li class="header-nav-item">
-                            <a href="#" class="header-nav-item-link">
-                                <span class="header-nav-item-link-text">
-                                    뉴스
-                                </span>
-                            </a>
-                        </li>
-                        <li class="header-nav-item">
-                            <a href="#" class="header-nav-item-link">
-                                <span class="header-nav-item-link-text">
-                                    공지
-                                </span>
-                            </a>
-                        </li>
-                        <li class="header-nav-item">
-                            <a href="#" class="header-nav-item-link">
-                                <span class="header-nav-item-link-text">
-                                    블로그
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        </header>
+
+        <div class="product-wrap">
+
+            <div class="main-visual" id="main_visual">
+                <div class="top-contents" id="top_contents">
+                    <div class="top-contents-inner" id="top_contents_inner">
+
+                        <div class="top-contents-video-container" id="top_contents_video_img">
+                            <div class="top-contents-back" id="top_contents_back">
+
+                            </div>
+                            <div class="top-contents-video-container-img">
+                            </div>
+                            <div class="top-contents-video-container-video">
+                                <!-- https://www.youtube.com/embed/fnujtvQyNVg?autoplay=0&controls=0&rel=0&mute=1&loop=0&showinfo=0&iv_load_policy=3&playsinline=1&playlist=fnujtvQyNVg&enablejsapi=1&origin=https%3A%2F%2Fwww.hwahae.co.kr&widgetid=3 -->
+                                <!-- <iframe width="1920" height="976" src="" title="201217 dim20.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                <iframe width="0" height="0" src="https://www.youtube.com/embed/fnujtvQyNVg?list=TLGGa4bO5ImvsIIwNTA5MjAyMg&autoplay=1&mute=1&loop=1" title="201217 dim20.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                    
+                            </div>
+                        </div>
+
+                        <div class="top-contents-main" id="top_contents_main">
+                            <div class="top-contents-1">
+                                <strong class="top-contents-title">
+                                    내가 찾는
+                                    <br>
+                                    모든 뷰티
+                                </strong>
+                                <p class="top-contents-desc">대한민국 1등 뷰티 앱 화해</p>
+                            </div>
+                        </div>
+
+                        <div class="top-contents-sub">
+
+                            <p class="top-contents-desc" style="opacity: 0; transform: translate3d(0px, 0px, 0px);" id="desc1">
+                                누구보다 나를 가장 잘 아는 사람은 바로 나
+                                <br>
+                                그래서 나의 선택이 가장 중요해요.
+                            </p>
+
+                            <p class="top-contents-desc" style="opacity: 0; transform: translate3d(0px, 0px, 0px);" id="desc2">
+                                화해를 통해 나에게 꼭 맞는
+                                <br>
+                                뷰티 라이프를 찾는 즐거움을 누리세요.
+                            </p>
+
+                            <p class="top-contents-desc" style="opacity: 0; transform: translate3d(0px, 0px, 0px);" id="desc3">
+                                화해가 지향하는 올바른 가치들을 통해
+                                <br>
+                                소비자 중심의 시장이 될 수 있도록
+                                <br>
+                                그리고, 이 원칙과 바람들이 당연한 기준이 되도록
+                                <br>
+                                당신과 함께 할게요.
+                            </p>
+                            
+
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
+            <section class="test">
+                test
+            </section>
+            <section class="test2">
+                test2
+            </section>
+
         </div>
-    </header>
-
-    <div class="scroll">
-        <div class="top-contents">
-            <div class="top-contents-inner" id="top_inner">
-                <div class="top-contents-img-container" id="top_img"></div>
-                <div data-aos="fade-up" 
-                data-aos-offset="3000" 
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000" 
-                data-aos-once="false"
-                >
-                asdff
-           </div>
-                
-            </div>
-        </div>
-    </div>
 
 
-    <div class="test">
-        끝나는 구간입니다.
-    </div>
+
+    </div>    
+
+
+
+
 </body>
 </html>
