@@ -82,6 +82,10 @@
         fill: #fff;
     }
 
+    .header-btn.nomal svg path {
+        fill: #222;
+    }
+
     .header-btn-open svg path{
         fill: #222;
     }

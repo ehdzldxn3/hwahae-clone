@@ -38,7 +38,6 @@ header {
 
 .header-color a svg path {
     fill: #5edfdf;
-    
 }
 
 .header-title a{
@@ -194,15 +193,38 @@ header {
     z-index: 2;
 }
 
+.selected {
+    font-weight: 700;
+}
+
+/* 스크롤 구간 끝나고 헤더 부분 */
+.header-nomal {
+    background-color: #fff;
+}
+
+.header-nomal .header-title a svg path {
+    fill: #5edfdf;
+}
+.header-nomal .header-nav-item-link-text {
+    color: black;
+}
+.header-nomal .header-nav-item-link-text.selected{
+    color: #5edfdf;
+}
+.header-nomal .header-nav-item-link-text.selected::after {
+    background-color: #5edfdf;
+}
+
+
+
+
 .test {
-    border: 1px solid red;
     background-color: blue;
     height: 100vh;
 }
 
 
 .test2 {
-    border: 1px solid red;
     background-color: red;
     height: 100vh;
 }

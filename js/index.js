@@ -7,7 +7,7 @@ const animation = {
     },
     topContentsVideoImg : {
         transform_in : [1, 2, {start: 0, end: 1}],
-        transform_out : [2, 1, {start: 0.15, end: 1}],
+        transform_out : [2, 1, {start: 1, end: 0}],
     },
     topContentsBack : {
         opacity_in: [0, 0.4, { start: 0, end: 0.15}],
@@ -15,8 +15,8 @@ const animation = {
         
     },
     topContents : {
-        opacity_in: [0, 1, { start: 0.9, end: 1 }],
-        opacity_out: [1, 0, { start: 1, end: 0.9 }],
+        opacity_in: [0.5, 1, { start: 0.9, end: 1 }],
+        opacity_out: [1, 0.5, { start: 1, end: 0.9 }],
     },
 
     //서브 contents
@@ -48,6 +48,8 @@ const animation = {
 document.addEventListener("DOMContentLoaded", () => {
 
     let scrollY = 0; //Y축 값
+
+    let header = document.getElementById('header')
 
     let mainVisual = document.getElementById('main_visual')
     let headerTitle = document.getElementById('header_title')
@@ -169,66 +171,23 @@ document.addEventListener("DOMContentLoaded", () => {
             desc3.style.transform = `translate3d(0, ${calcValues(animation.desc3.transform_out)}%, 0)`;
         }
 
-        if(scrollRatio >= 0.9) {
-
+        if(scrollRatio >= 0.85) {
             topContents.style.opacity = calcValues(animation.topContents.opacity_in)
             
         } else {
             topContents.style.opacity = calcValues(animation.topContents.opacity_out)
+            
         }
 
-        if(scrollRatio >= 0.95) {
+        if(scrollRatio >= 0.9) {
+            header.classList.add('header-nomal')
+            headerBtn.classList.add('nomal')
             topContentsInner.style.display = 'none'
         } else {
+            header.classList.remove('header-nomal')
+            headerBtn.classList.remove('nomal')
             topContentsInner.style.display = 'block'
         }
-
-        
-    
-
-        // if(scrollRatio <= 0.2) {
-            // topContentsBack.style.opacity = 0.4
-            // let aniStart =  10 //애니메이션 시작점 전체의 (%)
-            // let aniEnd = 30 // 애니메이션 끝점 전체의 (%)
-            // let startHeight = (scrollHeight / 100) * aniStart //전체에서 애니메이션 시작점
-            // let endHeight = (scrollHeight / 100 ) * aniEnd
-            // let aniHeight = endHeight - startHeight //애니메이션의 높이
-            // let aniScroll = (scrollRatio - startHeight) / aniHeight * 100   //애니메이션 안에서의 스크롤 위치 (%)
-            // let opacity = ( 100 - aniScroll ) / 100
-            
-            
-
-        //     let scale = calcValues(animation.topContentsVideoImg.transform)
-        //     if(scale > 1.5) scale = 1.5
-        //     topContentsVideoImg.style.transform = `scale3d(${scale},${scale},${scale})`
-
-        //     let topContentsBackOpacity =  calcValues(animation.topContentsBack.opacity)
-        //     if(topContentsBackOpacity > 0.4) topContentsBackOpacity = 0.4
-        //     topContentsBack.style.background = `rgba(0,0,0, ${topContentsBackOpacity})`
-
-
-
-
-        // } else if(scrollRatio <= 0.4) {
-
-         
-
-        // } else if (scrollRatio <= 0.95) {
-        //     topContents.style.opacity = calcValues(animation.topContents.opacity)
-        //     topContentsInner.style.display = 'block'
-        // } else if(scrollRatio <= 0.98) {
-        //     topContentsInner.style.display = 'none'
-        // }
-
-
-
-
-
-
-        // }
-        
-
-
     }
 
     setLayout()
