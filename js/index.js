@@ -1,25 +1,45 @@
 
 const animation = {
     topContentsMain: {
-        opacity: [1, 0, { start: 0, end: 0.1}],
+        opacity_in: [1, 0, { start: 0, end: 0.2}],
+        opacity_out: [1,0, { start: 0, end: 0}],
+
     },
     topContentsVideoImg : {
-        transform : [1, 1.5, {start: 0, end: 0.1}],
+        transform_in : [1, 2, {start: 0, end: 1}],
+        transform_out : [2, 1, {start: 0.15, end: 1}],
     },
     topContentsBack : {
-        opacity: [0, 0.4, { start: 0, end: 0.12 }],
+        opacity_in: [0, 0.4, { start: 0, end: 0.15}],
+        opacity_out: [0, 0.4, { start: 0, end: 0 }],
         
     },
     topContents : {
-        opacity: [1, 0, { start: 0.85, end: 1 }],
-        // opacity_out: [1, 0, { start: 1, end: 0.8 }],
+        opacity_in: [0, 1, { start: 0.9, end: 1 }],
+        opacity_out: [1, 0, { start: 1, end: 0.9 }],
     },
 
     //서브 contents
     desc1 : {
-        opacity: [0, 1, { start: 0.4, end: 0.8 }],
-        transform : [0, -20, { start: 0.4, end: 0.6 }],
-    }
+        opacity_in: [0, 1, { start: 0.25, end: 1 }],
+        opacity_out: [1, 0, { start: 1, end: 0.25 }],
+        transform_in : [40, 0, { start: 0.25, end: 0.35}],
+        transform_out : [0, 0, { start: 0.35, end: 0.25 }],
+    },
+
+    desc2 : {
+        opacity_in: [0, 1, { start: 0.35, end: 1 }],
+        opacity_out: [1, 0, { start: 1, end: 0.35 }],
+        transform_in : [40, 0, { start: 0.35, end: 0.45}],
+        transform_out : [0, 0, { start: 0.45, end: 0.35 }],
+    },
+
+    desc3 : {
+        opacity_in: [0, 1, { start: 0.45, end: 1 }],
+        opacity_out: [1, 0, { start: 1, end: 0.45 }],
+        transform_in : [40, 0, { start: 0.45, end: 0.55}],
+        transform_out : [0, 0, { start: 0.55, end: 0.45 }],
+    },
 
 
 }
@@ -62,13 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-    const setLayout = () => {
-        //스크롤 크기
-
+    //스크롤 크기
+    const setLayout = () => {   
         mainVisual.style.height = `${scrollHeight}px`
     }
-    //스크롤 셋팅
 
 
 
@@ -81,87 +98,135 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const calcValues = (values) => {
-        let rv = 0;
+
+        let rv;
+
         const partScrollStart = values[2].start * scrollHeight
         const partScrollEnd = values[2].end * scrollHeight
         const partScrollY = partScrollEnd - partScrollStart
-        rv = (scrollY - partScrollStart) / partScrollY * (values[1] - values[0]) + values[0]
-        if(Math.sign(rv) === -1) rv = Math.abs(rv)
+        // console.log('scrollY : ', scrollY)
+        // console.log('partScrollStart : ', partScrollStart)
+        // console.log('partScrollEnd : ', partScrollEnd)
+        
+        if(scrollY >= partScrollStart && scrollY <= partScrollEnd ) {
+            
+            rv = (scrollY - partScrollStart) / partScrollY * (values[1] - values[0]) + values[0]
+            
+        } else if(scrollY < partScrollStart) {
+            
+            rv = values[0]
+        } else if (scrollY > partScrollEnd) {
+            
+            rv = values[1]
+        }
 
+        // console.log('rv : ', rv)
+        
         return rv
     }
 
 
     const playAnimation = () => {
 
-        // 현재 스크롤 값
-        let scrollRatio = scrollY / scrollHeight
-        
-        if(scrollRatio <= 0.2) {
+        //현재 스크롤 진행도
+        const scrollRatio = scrollY / scrollHeight
 
-            // topContentsMain.style.opacity = calcValues(animation.topContentsMain.opacity)
-
-            // let scale = calcValues(animation.topContentsVideoImg.transform)
-            // if(scale > 1.5) scale = 1.5
+        if(scrollRatio >= 0.2) {
+            topContentsMain.style.opacity = calcValues(animation.topContentsMain.opacity_out)
+            topContentsBack.style.background = `rgba(0,0,0, ${calcValues(animation.topContentsBack.opacity_out)})`
+            // let scale = calcValues(animation.topContentsVideoImg.transform_out)
             // topContentsVideoImg.style.transform = `scale3d(${scale},${scale},${scale})`
+        } else {
+            topContentsMain.style.opacity = calcValues(animation.topContentsMain.opacity_in)
+            topContentsBack.style.background = `rgba(0,0,0, ${calcValues(animation.topContentsBack.opacity_in)})`
+            let scale = calcValues(animation.topContentsVideoImg.transform_in)
+            topContentsVideoImg.style.transform = `scale3d(${scale},${scale},${scale})`
+        }
 
-            // let topContentsBackOpacity =  calcValues(animation.topContentsBack.opacity)
-            // if(topContentsBackOpacity > 0.4) topContentsBackOpacity = 0.4
-            // topContentsBack.style.background = `rgba(0,0,0, ${topContentsBackOpacity})`
 
-        } else if(scrollRatio <= 0.4) {
+        if(scrollRatio >= 0.25) {
+            desc1.style.opacity = calcValues(animation.desc1.opacity_out)
+            desc1.style.transform = `translate3d(0, ${calcValues(animation.desc1.transform_in)}%, 0)`;
+        } else {
+            desc1.style.opacity = calcValues(animation.desc1.opacity_in)
+            desc1.style.transform = `translate3d(0, ${calcValues(animation.desc1.transform_out)}%, 0)`;
 
-            let desc1_opacity = calcValues(animation.desc1.opacity)
-            console.log(desc1_opacity)
-            desc1.style.opacity = desc1_opacity
-         
+        }
 
-        } else if (scrollRatio <= 0.95) {
-            // topContents.style.opacity = calcValues(animation.topContents.opacity)
-            // topContentsInner.style.display = 'block'
-        } else  {
-            // topContentsInner.style.display = 'none'
+        if(scrollRatio >= 0.35) {
+            desc2.style.opacity = calcValues(animation.desc2.opacity_out)
+            desc2.style.transform = `translate3d(0, ${calcValues(animation.desc2.transform_in)}%, 0)`;
+        } else {
+            desc2.style.opacity = calcValues(animation.desc2.opacity_in)
+            desc2.style.transform = `translate3d(0, ${calcValues(animation.desc2.transform_out)}%, 0)`;
+        }
+
+        if(scrollRatio >= 0.45) {
+            desc3.style.opacity = calcValues(animation.desc3.opacity_out)
+            desc3.style.transform = `translate3d(0, ${calcValues(animation.desc3.transform_in)}%, 0)`;
+        } else {
+            desc3.style.opacity = calcValues(animation.desc3.opacity_in)
+            desc3.style.transform = `translate3d(0, ${calcValues(animation.desc3.transform_out)}%, 0)`;
+        }
+
+        if(scrollRatio >= 0.9) {
+
+            topContents.style.opacity = calcValues(animation.topContents.opacity_in)
+            
+        } else {
+            topContents.style.opacity = calcValues(animation.topContents.opacity_out)
+        }
+
+        if(scrollRatio >= 0.95) {
+            topContentsInner.style.display = 'none'
+        } else {
+            topContentsInner.style.display = 'block'
         }
 
         
-        // if(scrollRatio >= 0.8) {
+    
 
-        //     topContents.style.opacity = calcValues(animation.topContents.opacity_out)
-        //     topContentsInner.style.display = 'none'
-            
-        // } else {
-        //     topContentsInner.style.display = 'block'
-        //     topContents.style.opacity = calcValues(animation.topContents.opacity_in)
-        // }
-
-
-        // if (scrollRatio <= 0.1) {
-        //     // 10% 이하일떄
-
-
-
-        // } else if (scrollRatio <= 0.12) {
-        //     // 12% 이하일떄
-
-
-
-        // } else if (scrollRatio <= 0.9) {
-        //     // 90% 이하일떄
-        //     topContents.style.opacity = calcValues(animation.topContents.opacity_out)
-        //     topContentsInner.style.display = 'block'
+        // if(scrollRatio <= 0.2) {
+            // topContentsBack.style.opacity = 0.4
+            // let aniStart =  10 //애니메이션 시작점 전체의 (%)
+            // let aniEnd = 30 // 애니메이션 끝점 전체의 (%)
+            // let startHeight = (scrollHeight / 100) * aniStart //전체에서 애니메이션 시작점
+            // let endHeight = (scrollHeight / 100 ) * aniEnd
+            // let aniHeight = endHeight - startHeight //애니메이션의 높이
+            // let aniScroll = (scrollRatio - startHeight) / aniHeight * 100   //애니메이션 안에서의 스크롤 위치 (%)
+            // let opacity = ( 100 - aniScroll ) / 100
             
             
-            
+
+        //     let scale = calcValues(animation.topContentsVideoImg.transform)
+        //     if(scale > 1.5) scale = 1.5
+        //     topContentsVideoImg.style.transform = `scale3d(${scale},${scale},${scale})`
+
+        //     let topContentsBackOpacity =  calcValues(animation.topContentsBack.opacity)
+        //     if(topContentsBackOpacity > 0.4) topContentsBackOpacity = 0.4
+        //     topContentsBack.style.background = `rgba(0,0,0, ${topContentsBackOpacity})`
+
+
+
+
+        // } else if(scrollRatio <= 0.4) {
+
+         
+
         // } else if (scrollRatio <= 0.95) {
-            
-        // } else if (scrollRatio <= 1 ) {
-        //     // topContentsInner.style.display = 'none'
-        //     // topContents.style.opacity = calcValues(animation.topContents.opacity_out)
+        //     topContents.style.opacity = calcValues(animation.topContents.opacity)
+        //     topContentsInner.style.display = 'block'
+        // } else if(scrollRatio <= 0.98) {
+        //     topContentsInner.style.display = 'none'
         // }
 
 
-        // opacity_in: [0, 1, { start: 0.9, end: 1 }],
-        // opacity_out: [1, 0, { start: 1, end: 0.9 }],
+
+
+
+
+        // }
+        
 
 
     }
@@ -173,7 +238,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //브라우저 스크롤 할떄
     window.addEventListener('scroll', () => {
         scrollY = window.scrollY
-
         playAnimation()
     })
 
@@ -196,4 +260,43 @@ document.addEventListener("DOMContentLoaded", () => {
             headerMenu.classList.remove('menu-open')
         }
     }
-})
+
+
+    // var controller = new ScrollMagic.Controller();
+    // var timeline = new TimelineMax();
+
+    // // 여기 애니메이션 코드가 들어갈 거예요.
+
+    // var scene_main = new ScrollMagic.Scene({
+    // triggerElement: ".trigger",
+    // duration: "1500px"  // 적당히 조절해 주시면 됩니다.
+    // })
+    // .setTween(timeline)
+    // .addTo(controller)
+
+
+    // var tween_opacity = new TimelineMax();
+
+    // tween_opacity
+    // .to(".animate", 0.3, {    // 0.3은 애니메이션이 진행되는 길이입니다.
+    //     ease: Linear.easeNone,  // Linear 애니메이션은 값이 직선형으로 일정하게 변한다는 뜻입니다.
+    //     opacity: 1              // Opacity가 0으로 (to) 바뀜
+    // })
+    // .to(".animate", 0.3, {
+    //     ease: Linear.easeNone,
+    //     opacity: 0
+    // }, "+=0.4");              // 여기 있는 0.4는 앞의 애니메이션 이 끝난 후 0.4만큼 기다리고 실행하라는 뜻입니다.
+    //                             // 텍스트가 페이드 인 한 뒤 일정 기간 나타나 있어야 하니까요.
+
+    // timeline.add(tween_opacity, 0);
+
+    // var tween_move = TweenMax.fromTo(".animate", 1, {
+    //     ease: SlowMo.ease.config(0.7, 0.7, false),  // SlowMo가 우리가 원하는 애니메이션의 이름입니다.
+    //     y: 50                                       // GSAP은 CSS와는 조금 달라서 transalateY 대신 y라는 이름으로 사용됩니다.
+    //   }, {
+    //     ease: SlowMo.ease.config(0.7, 0.7, false),
+    //     y: -50
+    //   });
+
+
+});
