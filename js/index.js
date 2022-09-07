@@ -21,22 +21,22 @@ const animation = {
 
     //서브 contents
     desc1 : {
-        opacity_in: [0, 1, { start: 0.25, end: 1 }],
-        opacity_out: [1, 0, { start: 1, end: 0.25 }],
+        opacity_in: [0, 1, { start: 0.25, end: 0.4 }],
+        opacity_out: [0, 1, { start: 0.4, end: 0.25 }],
         transform_in : [40, 0, { start: 0.25, end: 0.35}],
         transform_out : [0, 0, { start: 0.35, end: 0.25 }],
     },
 
     desc2 : {
-        opacity_in: [0, 1, { start: 0.35, end: 1 }],
-        opacity_out: [1, 0, { start: 1, end: 0.35 }],
+        opacity_in: [0, 1, { start: 0.35, end: 0.5 }],
+        opacity_out: [0, 1, { start: 0.5, end: 0.35 }],
         transform_in : [40, 0, { start: 0.35, end: 0.45}],
         transform_out : [0, 0, { start: 0.45, end: 0.35 }],
     },
 
     desc3 : {
-        opacity_in: [0, 1, { start: 0.45, end: 1 }],
-        opacity_out: [1, 0, { start: 1, end: 0.45 }],
+        opacity_in: [0, 1, { start: 0.45, end: 0.6 }],
+        opacity_out: [0, 1, { start: 0.6, end: 0.45 }],
         transform_in : [40, 0, { start: 0.45, end: 0.55}],
         transform_out : [0, 0, { start: 0.55, end: 0.45 }],
     },
@@ -145,27 +145,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if(scrollRatio >= 0.25) {
-            desc1.style.opacity = calcValues(animation.desc1.opacity_out)
+            desc1.style.opacity = calcValues(animation.desc1.opacity_in)            
             desc1.style.transform = `translate3d(0, ${calcValues(animation.desc1.transform_in)}%, 0)`;
         } else {
-            desc1.style.opacity = calcValues(animation.desc1.opacity_in)
+            desc1.style.opacity = calcValues(animation.desc1.opacity_out)
             desc1.style.transform = `translate3d(0, ${calcValues(animation.desc1.transform_out)}%, 0)`;
 
         }
 
         if(scrollRatio >= 0.35) {
-            desc2.style.opacity = calcValues(animation.desc2.opacity_out)
+            desc2.style.opacity = calcValues(animation.desc2.opacity_in)
             desc2.style.transform = `translate3d(0, ${calcValues(animation.desc2.transform_in)}%, 0)`;
         } else {
-            desc2.style.opacity = calcValues(animation.desc2.opacity_in)
+            desc2.style.opacity = calcValues(animation.desc2.opacity_out)
             desc2.style.transform = `translate3d(0, ${calcValues(animation.desc2.transform_out)}%, 0)`;
         }
 
         if(scrollRatio >= 0.45) {
-            desc3.style.opacity = calcValues(animation.desc3.opacity_out)
+            desc3.style.opacity = calcValues(animation.desc3.opacity_in)
             desc3.style.transform = `translate3d(0, ${calcValues(animation.desc3.transform_in)}%, 0)`;
         } else {
-            desc3.style.opacity = calcValues(animation.desc3.opacity_in)
+            desc3.style.opacity = calcValues(animation.desc3.opacity_out)
             desc3.style.transform = `translate3d(0, ${calcValues(animation.desc3.transform_out)}%, 0)`;
         }
 
