@@ -119,4 +119,20 @@
         font-size: 19px;
         padding-top: 20px;
     }
+
+
+
+    /* product-info */
+    .info-inner {
+        max-width: none;
+    }
+    .info-inner .info-title {
+        
+        font-size: 32px;
+        line-height: 42px;
+        letter-spacing: -1;
+        text-align: center;
+        padding: 0;
+    }
+
 }

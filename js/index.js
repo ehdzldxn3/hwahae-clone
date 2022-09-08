@@ -28,17 +28,17 @@ const animation = {
     },
 
     desc2 : {
-        opacity_in: [0, 1, { start: 0.35, end: 0.5 }],
-        opacity_out: [0, 1, { start: 0.5, end: 0.35 }],
-        transform_in : [40, 0, { start: 0.35, end: 0.45}],
-        transform_out : [0, 0, { start: 0.45, end: 0.35 }],
+        opacity_in: [0, 1, { start: 0.45, end: 0.55 }],
+        opacity_out: [0, 1, { start: 0.55, end: 0.45 }],
+        transform_in : [40, 0, { start: 0.45, end: 0.55}],
+        transform_out : [0, 0, { start: 0.55, end: 0.45 }],
     },
 
     desc3 : {
-        opacity_in: [0, 1, { start: 0.45, end: 0.6 }],
-        opacity_out: [0, 1, { start: 0.6, end: 0.45 }],
-        transform_in : [40, 0, { start: 0.45, end: 0.55}],
-        transform_out : [0, 0, { start: 0.55, end: 0.45 }],
+        opacity_in: [0, 1, { start: 0.65, end: 0.75 }],
+        opacity_out: [0, 1, { start: 0.75, end: 0.65 }],
+        transform_in : [40, 0, { start: 0.65, end: 0.75}],
+        transform_out : [0, 0, { start: 0.75, end: 0.65 }],
     },
 
 
@@ -88,17 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const setLayout = () => {   
         mainVisual.style.height = `${scrollHeight}px`
     }
-
-
-
-
-
-
-
-
-
-
-
+    
     const calcValues = (values) => {
 
         let rv;
@@ -155,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        if(scrollRatio >= 0.35) {
+        if(scrollRatio >= 0.45) {
             desc2.style.opacity = calcValues(animation.desc2.opacity_in)
             desc2.style.transform = `translate3d(0, ${calcValues(animation.desc2.transform_in)}%, 0)`;
         } else {
@@ -163,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
             desc2.style.transform = `translate3d(0, ${calcValues(animation.desc2.transform_out)}%, 0)`;
         }
 
-        if(scrollRatio >= 0.45) {
+        if(scrollRatio >= 0.65) {
             desc3.style.opacity = calcValues(animation.desc3.opacity_in)
             desc3.style.transform = `translate3d(0, ${calcValues(animation.desc3.transform_in)}%, 0)`;
         } else {
@@ -219,43 +209,5 @@ document.addEventListener("DOMContentLoaded", () => {
             headerMenu.classList.remove('menu-open')
         }
     }
-
-
-    // var controller = new ScrollMagic.Controller();
-    // var timeline = new TimelineMax();
-
-    // // 여기 애니메이션 코드가 들어갈 거예요.
-
-    // var scene_main = new ScrollMagic.Scene({
-    // triggerElement: ".trigger",
-    // duration: "1500px"  // 적당히 조절해 주시면 됩니다.
-    // })
-    // .setTween(timeline)
-    // .addTo(controller)
-
-
-    // var tween_opacity = new TimelineMax();
-
-    // tween_opacity
-    // .to(".animate", 0.3, {    // 0.3은 애니메이션이 진행되는 길이입니다.
-    //     ease: Linear.easeNone,  // Linear 애니메이션은 값이 직선형으로 일정하게 변한다는 뜻입니다.
-    //     opacity: 1              // Opacity가 0으로 (to) 바뀜
-    // })
-    // .to(".animate", 0.3, {
-    //     ease: Linear.easeNone,
-    //     opacity: 0
-    // }, "+=0.4");              // 여기 있는 0.4는 앞의 애니메이션 이 끝난 후 0.4만큼 기다리고 실행하라는 뜻입니다.
-    //                             // 텍스트가 페이드 인 한 뒤 일정 기간 나타나 있어야 하니까요.
-
-    // timeline.add(tween_opacity, 0);
-
-    // var tween_move = TweenMax.fromTo(".animate", 1, {
-    //     ease: SlowMo.ease.config(0.7, 0.7, false),  // SlowMo가 우리가 원하는 애니메이션의 이름입니다.
-    //     y: 50                                       // GSAP은 CSS와는 조금 달라서 transalateY 대신 y라는 이름으로 사용됩니다.
-    //   }, {
-    //     ease: SlowMo.ease.config(0.7, 0.7, false),
-    //     y: -50
-    //   });
-
 
 });

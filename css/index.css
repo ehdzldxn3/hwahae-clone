@@ -217,14 +217,32 @@ header {
 
 
 
+/* product-info */
+.product-info {
+    border: 1px solid red;
 
-.test {
-    background-color: blue;
+    /* 나중에 지울꺼 */
+    width: 100vw;
     height: 100vh;
 }
 
-
-.test2 {
-    background-color: red;
-    height: 100vh;
+.info-inner {
+    max-width: 1070px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.info-inner .info-title {
+    color: #212529;
+    font-size: 52px;
+    line-height: 1.35;
+    letter-spacing: -2.89px;
+    text-align: left;
+    padding-left: 60px;
+    margin: 0 auto;
+}
+
+
+
+
+
