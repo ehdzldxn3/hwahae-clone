@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const calcValues = (values) => {
 
         let rv;
-
+        
         const partScrollStart = values[2].start * scrollHeight
         const partScrollEnd = values[2].end * scrollHeight
         const partScrollY = partScrollEnd - partScrollStart
