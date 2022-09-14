@@ -242,6 +242,25 @@ header {
     margin: 0 auto;
 }
 
+.info-inner .info-desc {
+    color: #212529;
+    padding-top: 30px;
+    margin-top: 0;
+    font-size: 18px;
+    line-height: 1.61;
+    letter-spacing: -1px;
+    text-align: left;
+    padding-left: 60px;
+    min-width: 1070px;
+    margin: 0 auto;
+}
+
+.info-inner .info-content {
+    position: relative;
+    margin-top: 80px;
+
+}
+
 
 
 

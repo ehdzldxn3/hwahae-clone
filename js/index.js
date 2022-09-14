@@ -96,12 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const partScrollStart = values[2].start * scrollHeight
         const partScrollEnd = values[2].end * scrollHeight
         const partScrollY = partScrollEnd - partScrollStart
-        // console.log('scrollY : ', scrollY)
-        // console.log('partScrollStart : ', partScrollStart)
-        // console.log('partScrollEnd : ', partScrollEnd)
         
         if(scrollY >= partScrollStart && scrollY <= partScrollEnd ) {
-            
             rv = (scrollY - partScrollStart) / partScrollY * (values[1] - values[0]) + values[0]
             
         } else if(scrollY < partScrollStart) {
@@ -112,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
             rv = values[1]
         }
 
-        // console.log('rv : ', rv)
         
         return rv
     }
@@ -209,5 +204,52 @@ document.addEventListener("DOMContentLoaded", () => {
             headerMenu.classList.remove('menu-open')
         }
     }
+
+
+
+
+    $('.info-counting-list').slick({
+        autoplay: true, //자동자생
+        autoplaySpeed: 1000,    //자동재생 시간
+        infinite: true, //  무한반복
+        dots: false,    //네비게이션 
+        arrows: false,  //화살표
+        vertical: true, //세로모드
+        slidesToShow: 3,
+    })
+
+    
+    $('.counting-index').counterUp({
+        delay: 10,
+        time: 1000
+    });
+
+    // // On swipe event
+    // $('.info-counting-list').on('swipe', (event, slick, direction) => {
+    //     console.log('swipe')
+    // });
+    // // On edge hit
+    // $('.info-counting-list').on('edge', (event, slick, direction) => {
+    //     console.log('edge')
+    // });
+    // // On before slide change
+    // $('.info-counting-list').on('beforeChange', (e, s, cl, ns) => {
+
+
+
+        
+        
+    // })
+
+    $('.info-counting-list').on('afterChange', (e, s, cl) =>{
+        // $('.counting-index').counterUp({
+        //     delay: 10,
+        //     time: 1000
+        // });
+    })
+
+
+
+    
 
 });
