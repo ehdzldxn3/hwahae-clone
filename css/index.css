@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: center;
     margin: auto;
-    max-width: 1070px;
+    /* max-width: 1070px; */
     position: relative;
 }
 
@@ -219,11 +219,7 @@ header {
 
 /* product-info */
 .product-info {
-    border: 1px solid red;
 
-    /* 나중에 지울꺼 */
-    width: 100vw;
-    height: 100vh;
 }
 
 .info-inner {
@@ -251,16 +247,117 @@ header {
     letter-spacing: -1px;
     text-align: left;
     padding-left: 60px;
-    min-width: 1070px;
+    /* min-width: 1070px; */
     margin: 0 auto;
+    
 }
 
 .info-inner .info-content {
     position: relative;
     margin-top: 80px;
-
+    /* width: 100vw; */
 }
 
+.info-inner .info-counting-list {
+    padding: 50px 0;
+    height: 600px;
+}
+
+.info-inner .info-counting-item {
+    /* border: 1px solid red; */
+
+    padding: 50px;
+}
+
+.info-counting-item .counting-index {
+    display: none;
+    transition: 0.5s;
+}
+
+.counting-title .counting-text {
+    color : #c8c8c8;
+    margin-left: 45px;
+    transition: 0.5s;
+}
+.counting-title .counting-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #fff;
+    position: absolute;
+    border: 1px solid#c8c8c8;
+    z-index: -1;
+    transition: 0.8s
+}
+.info-content .info-image {
+    position: absolute;
+    top: 0;
+    left: 280px;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes slideup {
+    0% {
+        opacity: 0;
+        margin-top: 30px;
+
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+.info-content .info-image.img1 {
+    background-image: url('https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/public/images/product-ranking/this-hwahae02.jpg');
+    background-size: cover;
+    border-radius: 280px;
+    transition: 1s;
+    opacity: 0;
+    top: -10px;
+}
+.info-content .info-image.img2 {
+    background-image: url('https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/public/images/product-ranking/this-hwahae03.jpg');
+    background-size: cover;
+    border-radius: 280px;
+    transition: 1s;
+    opacity: 0;
+    top: -10px;
+}
+.info-content .info-image.img3 {
+    opacity: 1;
+    transition: 1s;
+    top: 0;
+}
+
+
+.info-counting-item.selected .counting-title .counting-text{
+    /* border: 1px solid red; */
+    
+    padding: 0;
+    color: black;
+    transition: 0.5s;
+    font-size: 18px;
+}
+
+.info-counting-item.selected .counting-icon{
+    width: 220Px;
+    height: 220px;
+    transform: translate3d(-48px, -67px, 0px);
+    background-color: #5edfdf; 
+    transition: 0.5s;
+}
+
+.info-counting-item.selected .counting-index {
+    display: block;
+    font-size: 100px;
+    transition: 0.5s;
+    padding-left: 10px;
+    color: #212529;
+}
 
 
 

@@ -210,44 +210,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $('.info-counting-list').slick({
         autoplay: true, //자동자생
-        autoplaySpeed: 1000,    //자동재생 시간
+        autoplaySpeed: 2500,    //자동재생 시간
         infinite: true, //  무한반복
         dots: false,    //네비게이션 
         arrows: false,  //화살표
         vertical: true, //세로모드
-        slidesToShow: 3,
+        slidesToShow: 4,
+    })
+
+
+    
+    let img = document.querySelectorAll('.info-image')[0]
+    //slick 바꾸기전 지운다
+    $('.info-counting-list').on('beforeChange', (e, s, cl, ns) => {
+        document.querySelectorAll('.info-counting-item').forEach((item, index) => {
+            item.classList.remove('selected')
+        })
+        
+    })
+    $('.info-counting-list').on('afterChange', (e, s, cl) =>{
+        console.log('??')
+        if(img.classList.contains('img1')) {
+            img.classList.remove('img1')
+            img.classList.add('img2')
+        } else if (img.classList.contains('img2')) {
+            img.classList.remove('img2')    
+            img.classList.add('img1')
+        }
+
+        document.querySelectorAll('.info-counting-item.slick-slide.slick-active').forEach((item, index) => {
+            item.classList.remove('selected')
+            
+            
+            if(index === 1 ) {
+
+                
+                
+                
+                
+                item.classList.add('selected')
+                $(item.children[1]).counterUp({
+                    delay: 10,
+                    time: 800
+                });
+            }
+        })
     })
 
     
-    $('.counting-index').counterUp({
-        delay: 10,
-        time: 1000
-    });
+    
 
-    // // On swipe event
-    // $('.info-counting-list').on('swipe', (event, slick, direction) => {
-    //     console.log('swipe')
-    // });
-    // // On edge hit
-    // $('.info-counting-list').on('edge', (event, slick, direction) => {
-    //     console.log('edge')
-    // });
-    // // On before slide change
-    // $('.info-counting-list').on('beforeChange', (e, s, cl, ns) => {
-
-
-
-        
-        
-    // })
-
-    $('.info-counting-list').on('afterChange', (e, s, cl) =>{
-        // $('.counting-index').counterUp({
-        //     delay: 10,
-        //     time: 1000
-        // });
-    })
-
+    
 
 
     

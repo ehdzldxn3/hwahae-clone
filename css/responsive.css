@@ -1,7 +1,10 @@
-@media (max-width: 768px) {
+@media all and (max-width: 768px) {
+
+    
     header {
         height: 64px;
     }
+    
 
     .header-inner {
         display: block;
@@ -142,6 +145,41 @@
         padding-left: 0;
         max-width: none;
         min-width: 0;
+    }
+
+
+    .counting-title .counting-icon {
+        border: 4px solid#c8c8c8;
+    }
+
+
+    .info-counting-item.selected .counting-icon{
+        width: 200px;
+        height: 200px;
+        transform: translate3d(-111px, -40px, 0px);
+        border: 0px;
+    }
+
+    .info-content .info-image.img1 {
+        border-radius: 0;
+        border-top-left-radius: 600px;
+        border-bottom-left-radius: 600px;
+    }
+    .info-content .info-image.img2 {
+        border-radius: 0;
+        border-top-left-radius: 600px;
+        border-bottom-left-radius: 600px;
+    }
+
+    .info-content .info-image {
+        width: 50%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+    }
+
+    .info-counting-item.selected .counting-index {
+        font-size: 50px;
     }
 
     
