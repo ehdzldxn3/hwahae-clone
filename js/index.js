@@ -229,25 +229,19 @@ document.addEventListener("DOMContentLoaded", () => {
         
     })
     $('.info-counting-list').on('afterChange', (e, s, cl) =>{
-        console.log('??')
-        if(img.classList.contains('img1')) {
-            img.classList.remove('img1')
-            img.classList.add('img2')
-        } else if (img.classList.contains('img2')) {
-            img.classList.remove('img2')    
-            img.classList.add('img1')
+
+        if ($($('.info-image')[0]).is(':visible')) {
+            $($('.info-image')[1]).show()
+            $($('.info-image')[0]).hide()
+        } else {
+            $($('.info-image')[0]).show()
+            $($('.info-image')[1]).hide()
         }
+
 
         document.querySelectorAll('.info-counting-item.slick-slide.slick-active').forEach((item, index) => {
             item.classList.remove('selected')
-            
-            
             if(index === 1 ) {
-
-                
-                
-                
-                
                 item.classList.add('selected')
                 $(item.children[1]).counterUp({
                     delay: 10,
@@ -255,6 +249,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
         })
+    })
+
+
+    
+
+
+    $('.review-card-wrap').slick({
+        autoplay: true, //자동자생
+        autoplaySpeed: 2500,    //자동재생 시간
+        infinite: true, //  무한반복
+        dots: false,    //네비게이션 
+        arrows: false,  //화살표
+        vertical: false, //세로모드
+        slidesToShow: 1,
     })
 
     

@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: center;
     margin: auto;
-    /* max-width: 1070px; */
+    max-width: 1070px;
     position: relative;
 }
 
@@ -219,7 +219,7 @@ header {
 
 /* product-info */
 .product-info {
-
+    border: 4px solid red;
 }
 
 .info-inner {
@@ -296,18 +296,22 @@ header {
     z-index: -2;
     width: 100%;
     height: 100%;
+    animation: slideup 0.5s;
 }
+
+
+
 
 @keyframes slideup {
     0% {
         opacity: 0;
-        margin-top: 30px;
+        transform: translate3d(0, 5%, 0);
 
     }
 
     100% {
         opacity: 1;
-        margin-top: 0;
+        transform: translateZ(0);
     }
 }
 
@@ -316,16 +320,14 @@ header {
     background-size: cover;
     border-radius: 280px;
     transition: 1s;
-    opacity: 0;
-    top: -10px;
+    opacity: 1;
 }
 .info-content .info-image.img2 {
     background-image: url('https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/public/images/product-ranking/this-hwahae03.jpg');
     background-size: cover;
     border-radius: 280px;
     transition: 1s;
-    opacity: 0;
-    top: -10px;
+    opacity: 1;
 }
 .info-content .info-image.img3 {
     opacity: 1;
@@ -353,12 +355,114 @@ header {
 
 .info-counting-item.selected .counting-index {
     display: block;
-    font-size: 100px;
+
     transition: 0.5s;
     padding-left: 10px;
     color: #212529;
 }
 
 
+/* @@@@@@@@@@@@@@@ */
+/* PRODUCT REVIEW */
+/* @@@@@@@@@@@@@@@ */
 
+.product-review {
+    /* 삭제 */
+    border: 1px solid red;
 
+    position: relative;
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 310px 0 210px;
+}
+
+.review-inner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 100px;
+}
+
+.review-inner .review-card-section {
+    min-width: 360px;
+    height: 680px;
+    margin: 0 !important;
+    width: 250px;
+}
+
+.review-card-section .review-card-viewport {
+    display: flex;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 100%;
+
+    box-shadow: 0 30px 60px 12px rgb(0 0 33 / 5%), 0 4px 24px 0 rgb(0 0 33 / 5%), 0 0 1px 0 rgb(0 0 33 / 5%);
+}
+.review-card-section .review-card-wrap {
+    width: 100%;
+    transition: 1s;
+    white-space: nowrap;
+}
+
+.review-card-section .review-card-inner {
+    display: inline-block;
+}
+
+.review-card-section .review-card-video {
+    /* width: inherit; */
+    width: 100%;
+}
+
+video {
+    object-fit: contain;
+}
+
+.review-tag-section .review-title {
+    font-size: 52px;
+    padding: 50px 0 0;
+    line-height: 70px;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 1070px;
+}
+
+.review-tag-section .review-desc {
+    font-size: 18px;
+    padding: 30px 0 0;
+    max-width: 1070px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.review-tag-section .review-tag-viewport {
+    overflow: visible;
+}
+.review-tag-section .review-tag-area {
+    width: 100%;
+    padding-top: 40px;
+    margin-left: -19px;
+    text-align: left;
+    display: block;
+    position: static;
+    margin: 0 auto;
+    max-width: 580px;
+}
+
+.review-tag-section .review-tag-list {
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+}
+
+.review-tag-section .review-tag-indicator {
+    position: absolute;
+    top: 1px;
+    display: block;
+    width: 126px;
+    height: 50px;
+    background: #22d3d6;
+    border-radius: 30px;
+}
+
+}

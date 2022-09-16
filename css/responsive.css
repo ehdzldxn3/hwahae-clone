@@ -172,15 +172,22 @@
     }
 
     .info-content .info-image {
-        width: 50%;
-        height: 100%;
-        left: 50%;
-        top: 50%;
+        width: 60%;
+        height: 80%;
+        left: 40%;
+        margin-top: 18%;
+        background-position: 50%;
     }
 
     .info-counting-item.selected .counting-index {
         font-size: 50px;
     }
+
+
+.info-counting-item .counting-title .counting-text{
+    font-weight: 700;
+}
+
 
     
 
