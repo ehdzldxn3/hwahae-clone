@@ -1,4 +1,4 @@
-
+// 
 const animation = {
     topContentsMain: {
         opacity_in: [1, 0, { start: 0, end: 0.2}],
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $('.review-card-wrap').slick({
         autoplay: true, //자동자생
-        autoplaySpeed: 2500,    //자동재생 시간
+        autoplaySpeed: 2000,    //자동재생 시간
         infinite: true, //  무한반복
         dots: false,    //네비게이션 
         arrows: false,  //화살표
@@ -266,11 +266,140 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     
+    // $('.shopping-thumb-section').slick({
+    //     autoplay: false, //자동자생
+    //     autoplaySpeed: 500,    //자동재생 시간
+    //     infinite: true, //  무한반복
+    //     dots: false,    //네비게이션 
+    //     arrows: false,  //화살표
+    //     vertical: false, //세로모드
+    //     slidesToShow: 1,
+    // })
+    
     
 
-    
+    // 동그란거 움직이기
+    const reviewSectionTag = () => {
+
+        let firstTag = document.querySelectorAll('.review-tag-list.first')[0].children
+        let secondTag = document.querySelectorAll('.review-tag-list.second')[0].children
+        let thirdTag = document.querySelectorAll('.review-tag-list.third')[0].children
 
 
-    
+        //첫번째 라인
+        document.querySelectorAll('.review-tag-list.first .review-tag-indicator').forEach((item,index) => {  
+            if(item.classList.contains('first-line-first')) {
+                item.classList.remove('first-line-first')
+                item.classList.add('first-line-third')
+                firstTag[1].classList.remove('tag-selected')
+                firstTag[3].classList.add('tag-selected')
+            } else if (item.classList.contains('first-line-third')) {
+                item.classList.remove('first-line-third')
+                item.classList.add('first-line-fourth')
+                firstTag[3].classList.remove('tag-selected')
+                firstTag[4].classList.add('tag-selected')
+            } else if (item.classList.contains('first-line-fourth')) {
+                item.classList.remove('first-line-fourth')
+                item.classList.add('first-line-first')
+                firstTag[4].classList.remove('tag-selected')
+                firstTag[1].classList.add('tag-selected')
+            }
+        })
 
+        document.querySelectorAll('.review-tag-list.second .review-tag-indicator').forEach((item, index) => {
+            if(item.classList.contains('second-line-third')) {
+                item.classList.remove('second-line-third')
+                item.classList.add('second-line-fourth')
+                secondTag[3].classList.remove('tag-selected')
+                secondTag[4].classList.add('tag-selected')
+            } else if (item.classList.contains('second-line-fourth')) {
+                item.classList.remove('second-line-fourth')
+                item.classList.add('second-line-second')
+                secondTag[4].classList.remove('tag-selected')
+                secondTag[2].classList.add('tag-selected')
+            } else if (item.classList.contains('second-line-second')) {
+                item.classList.remove('second-line-second')
+                item.classList.add('second-line-third')
+                secondTag[2].classList.remove('tag-selected')
+                secondTag[3].classList.add('tag-selected')
+            }
+        })
+        document.querySelectorAll('.review-tag-list.third .review-tag-indicator').forEach((item, index) => {
+            if(item.classList.contains('third-line-first')) {
+                item.classList.remove('third-line-first')
+                item.classList.add('third-line-third')
+                thirdTag[1].classList.remove('tag-selected')
+                thirdTag[3].classList.add('tag-selected')
+            } else if (item.classList.contains('third-line-third')) {
+                item.classList.remove('third-line-third')
+                item.classList.add('third-line-second')
+                thirdTag[3].classList.remove('tag-selected')
+                thirdTag[2].classList.add('tag-selected')
+            } else if (item.classList.contains('third-line-second')) {
+                item.classList.remove('third-line-second')
+                item.classList.add('third-line-first')
+                thirdTag[2].classList.remove('tag-selected')
+                thirdTag[1].classList.add('tag-selected')
+            }
+        })
+
+
+
+
+    }
+
+    const shoppingSectionThumb = () => {
+
+        let ctl = document.querySelectorAll('.shopping-controller .controller-link')
+        let thumb = document.querySelectorAll('.shopping-thumb-section .shopping-thumb')
+
+        thumb.forEach((item, index)=> {
+
+            if( item.classList.contains('thumb-img1') ) {
+                item.classList.remove('thumb-img1')
+                item.classList.add('thumb-img2')
+                
+                ctl[0].classList.remove('controller-link-selected')
+                ctl[1].classList.add('controller-link-selected')
+            } else if ( item.classList.contains('thumb-img2') ) {
+                item.classList.remove('thumb-img2')
+                item.classList.add('thumb-img3')
+                ctl[1].classList.remove('controller-link-selected')
+                ctl[2].classList.add('controller-link-selected')
+            } else if ( item.classList.contains('thumb-img3') ) {
+                item.classList.remove('thumb-img3')
+                item.classList.add('thumb-img1')
+                ctl[2].classList.remove('controller-link-selected')
+                ctl[0 ].classList.add('controller-link-selected')
+            }
+        })
+
+
+        document.querySelectorAll('.shopping-controller .controller-link').forEach((item, index) => {
+            if( index === 0 && item.classList.contains('controller-link-selected') ) {
+                item.classList.remove('controller-link-selected')
+                item.classList.add('controller-link-selected')
+            } else if ( index === 1 && item.classList.contains('controller-link-selected') ) {
+
+            } else if ( index === 2 && item.classList.contains('controller-link-selected') ) {
+
+            }
+        })
+    }
+
+    const categorySectionList = () => {
+        
+        document.querySelectorAll('.category-item').forEach((item, index) => {
+
+        })
+
+    }
+
+
+    // reviewSectionTag()
+    setInterval(reviewSectionTag,2000)
+    setInterval(shoppingSectionThumb,2000)
+    // setInterval(categorySectionList,2000)
+
+    // shoppingSectionThumb()
 });

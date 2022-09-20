@@ -355,7 +355,7 @@ header {
 
 .info-counting-item.selected .counting-index {
     display: block;
-
+    font-size: 40px;
     transition: 0.5s;
     padding-left: 10px;
     color: #212529;
@@ -367,8 +367,6 @@ header {
 /* @@@@@@@@@@@@@@@ */
 
 .product-review {
-    /* 삭제 */
-    border: 1px solid red;
 
     position: relative;
     max-width: 1070px;
@@ -417,6 +415,10 @@ header {
 video {
     object-fit: contain;
 }
+.review-tag-section {
+    width: 500px;
+    padding-right: 70px;
+}
 
 .review-tag-section .review-title {
     font-size: 52px;
@@ -453,16 +455,421 @@ video {
     display: flex;
     position: relative;
     margin-top: 20px;
+    justify-content: space-between;
 }
 
 .review-tag-section .review-tag-indicator {
     position: absolute;
     top: 1px;
     display: block;
-    width: 126px;
     height: 50px;
     background: #22d3d6;
     border-radius: 30px;
+
+    transition: 1s;
 }
+
+.review-tag-list .review-tag.tag-selected {
+    color: #fff;
+    transition: 1.5s;
+}
+/* 1,3,4 */
+/* 1-1 */
+.review-tag-list .review-tag-indicator.first-line-first {
+    transition: 1s;
+    transform: translate3d(-10px, 0, 0); 
+    width: 85px;
+}
+/* 1-2 */
+.review-tag-list .review-tag-indicator.first-line-second {
+    transition: 1s;
+    transform: translate3d(80px, 0, 0);
+    width: 165px;
+}
+/* 1-3 */
+.review-tag-list .review-tag-indicator.first-line-third {
+    transition: 1s;
+    transform: translate3d(255px, 0, 0);
+    width: 85px;
+}
+/* 1-4 */
+.review-tag-list .review-tag-indicator.first-line-fourth {
+    transition: 1s;
+    transform: translate3d(345px, 0, 0);
+    width: 100px;
+}
+
+/* 3,4,2 */
+.review-tag-list .review-tag-indicator.second-line-third {
+    transition: 1s;
+    transform: translate3d(225px, 0, 0); 
+    width: 100px;
+}
+
+.review-tag-list .review-tag-indicator.second-line-fourth {
+    transition: 1s;
+    transform: translate3d(325px, 0, 0); 
+    width: 115px;
+}
+.review-tag-list .review-tag-indicator.second-line-second {
+    transition: 1s;
+    transform: translate3d(110px, 0, 0); 
+    width: 115px;
+}
+
+/* 1, 3, 2 */
+.review-tag-list .review-tag-indicator.third-line-first {
+    transition: 1s;
+    transform: translate3d(-10px, 0, 0); 
+    width: 145px;
+}
+
+.review-tag-list .review-tag-indicator.third-line-third {
+    transition: 1s;
+    transform: translate3d(257px, 0, 0); 
+    width: 100px;
+}
+.review-tag-list .review-tag-indicator.third-line-second {
+    transition: 1s;
+    transform: translate3d(140px, 0, 0); 
+    width: 115px;
+}
+
+
+
+
+.review-tag-section .review-tag {
+    position: relative;
+    height: 50px;
+    margin-top: 0;
+    font-size: 34px;
+    line-height: 51px;
+    color: #c8c8c8;
+}
+
+
+.product-shopping {
+    height: 1000px;
+    background-color: #51ced3;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.product-shopping .shopping-title {
+    text-align: center;
+    width: 100%;
+    font-size: 52px;
+    line-height: 70px;
+    color: #fff;
+
+    /* 임시 */
+    /* border: 1px solid red; */
+}
+.product-shopping .shopping-inner {
+    width: 100%;
+    /* 임시 */
+    /* border: 1px solid blue; */
+    /* height: 700px; */
+
+}
+
+.shopping-inner .shopping-controller {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+}
+.shopping-controller .controller-link {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    color: #fff;
+    opacity: 70%;
+    font-weight: 600;
+    /* transition: 1s; */
+}
+
+.shopping-controller .controller-link:hover {
+    cursor: pointer;
+}
+
+.shopping-controller .controller-link.controller-link-selected {
+    border: 1.5px solid #fff;
+    color: #fff;
+    opacity: 1;
+    font-weight: 700;
+    /* transition: 1s; */
+}
+
+.shopping-inner .shopping-viewport {
+    margin-top: 25px;
+    display: flex;
+    overflow: hidden;
+}
+
+
+.shopping-viewport .shopping-viewport-inner {
+    width: 100%;
+    text-align: center;
+    /* border: 1px solid red; */
+
+    /* height: 100px; */
+}
+
+.shopping-viewport-inner .shopping-viewport-title {
+    margin-top: 7px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.shopping-viewport-inner .shopping-thumb-wrap {
+    
+    width: 360px;
+    height: 507px;
+    margin-top: 55px;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+}
+.shopping-thumb-wrap .shopping-thumb-section {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 55px;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid #f2f2f2;
+    box-shadow: 0 30px 60px 12px rgb(0 0 33 / 5%), 0 4px 24px 0 rgb(0 0 33 / 5%), 0 0 1px 0 rgb(0 0 33 / 5%);
+    
+}
+
+.shopping-thumb-section .shopping-thumb{
+    min-width: 100%;
+    display: inline-flex;
+    text-align: center;
+}
+.shopping-thumb-section .shopping-thumb.thumb-img1{
+    transform: none;
+    transition: 1s;
+}
+.shopping-thumb-section .shopping-thumb.thumb-img2{
+    transform: translate3d(-100%, 0, 0);
+    transition: 1s;
+}
+.shopping-thumb-section .shopping-thumb.thumb-img3{
+    transform: translate3d(-200%, 0, 0);
+    transition: 1s;
+}
+
+.shopping-thumb-inner {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+.shopping-thumb-inner.shopping-thumb-img1 {
+    background-image: url("https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/public/images/home/buy-01.jpg");
+}
+.shopping-thumb-inner.shopping-thumb-img2 {
+    background-image: url("https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/public/images/home/buy-02.jpg");
+}
+.shopping-thumb-inner.shopping-thumb-img3 {
+    background-image: url("https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/public/images/home/buy-03.jpg");
+}
+
+
+/* *************** */
+/* *** RANKING *** */
+/* *************** */
+
+.product-ranking {
+    display: flex;
+    align-items: center;
+    /* max-width: 1240; */
+    margin: 0 auto;
+    padding-top: 250px;
+
+
+    
+    /* 임시 */
+    border: 1px solid red;
+    /* width: 100vw; */
+    /* height: 50vh; */
+}
+
+.product-ranking .rang-hgroup {
+    width: 39%;
+    overflow: hidden;
+    padding-left: 110px;
+
+    /* 임시 */
+    border: 1px solid black;
+    height: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.rang-hgroup .ranking-title  {
+    font-size: 52px;
+    transition: 2s;
+}
+
+.rang-hgroup .ranking-inner {
+    padding-top: 30px;
+    font-size: 18px;
+    transition: 2s;
+}
+
+
+
+.product-ranking .rank-inner {
+    width: 61%;
+
+    /* 임시 */
+    /* border: 1px solid blue; */
+    height: 100%;
+}
+
+.rank-inner .rank-tab{
+    /* margin-top: 50px; */
+}
+
+.ranking-tab .category-list {
+    display: flex;
+    justify-content: center;
+    padding-left: 110px;
+}
+.category-list .category-item {
+    /* opacity: 0.5; */
+    padding-right: 10px;
+}
+.category-item .category-link {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    opacity: 0.3;
+    border: 1px solid #999;
+    border-radius: 100%;
+    line-height: 58px;
+    transition: 1s;
+}
+.category-link .category-txt {
+    opacity: 0;
+    /* transition: 0.2; */
+}
+.category-selected .category-txt {
+    font-size: 18px;
+    /* color: #fff; */
+    font-weight: 600;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.category-item .category-link.category-selected {
+    padding: 0 30px 0 66px;
+    width: auto;
+    background-color: #22d3d6;
+    opacity: 1;
+    border: 0;
+    padding: 0 30px 0 66px;
+    background-position: 7px 50%;
+    letter-spacing: -0.94px;
+    border-radius: 30px;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    transition: 1s;
+}
+
+.category-item .category-link.category-btn-img1 {
+    background-image: url(https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/rank_cate01.png);
+}
+
+.category-item .category-link.category-btn-img2 {
+    background-image: url(https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/rank_cate02.png);
+}
+
+.category-item .category-link.category-btn-img3 {
+    background-image: url(https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/rank_cate03.png);
+}
+.category-item .category-link.category-btn-img4 {
+    background-image: url(https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/rank_cate04.png);
+}
+.category-item .category-link.category-btn-img5 {
+    background-image: url(https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/rank_cate05.png);
+}
+.category-item .category-link.category-btn-img6 {
+    background-image: url(https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/rank_cate06.png);
+}
+
+.ranking-tab .ranking-contents {
+
+}
+
+
+
+.ranking-viewport .ranking-list {
+    padding: 0 10px 80px 56px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    border: 1px solid #000;
+}
+
+.ranking-list .ranking-item {
+    
+    width: 400px;
+    height: 100px;
+
+    margin-top: 50px;
+    /* padding-top: 25px; */
+    /* border: 1px solid red; */
+}
+
+.ranking-item .ranking-link {
+    height: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px 12px rgb(0 0 33 / 5%), 0 4px 24px 0 rgb(0 0 33 / 5%), 0 0 1px 0 rgb(0 0 33 / 5%);
+    display: flex;
+    align-items: center;
+}
+
+.ranking-link .ranking-img {
+    border-radius: 30px;
+    width: 25%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: 0px 0px;
+    display: inline-block;
+}
+
+.ranking-link .ranking-img.ranking-image1 {
+    background-image: url('https://www.hwahae.co.kr/images/product-ranking/babyImage1.jpg');
+}
+
+.ranking-link .ranking-img.ranking-image2 {
+    background-image: url('https://www.hwahae.co.kr/images/product-ranking/babyImage2.jpg');
+}
+
+.ranking-link .ranking-img.ranking-image3 {
+    background-image: url('https://www.hwahae.co.kr/images/product-ranking/babyImage3.jpg');
+}
+
+.ranking-link .ranking-inner {
+    display: inline-block;
+}    
+
+.ranking-inner .ranking-txt {
+
 
 }
