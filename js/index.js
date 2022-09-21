@@ -389,17 +389,155 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const categorySectionList = () => {
         
-        document.querySelectorAll('.category-item').forEach((item, index) => {
+        let categoryBtn = document.querySelectorAll('.category-link')
+        let rankingItem = document.querySelectorAll('.ranking-item')
 
-        })
+        
 
+        if( categoryBtn[0].classList.contains('category-selected') ) {
+            categoryBtn[0].classList.remove('category-selected')
+            categoryBtn[1].classList.add('category-selected')
+        } else if ( categoryBtn[1].classList.contains('category-selected') ) {
+            categoryBtn[1].classList.remove('category-selected')
+            categoryBtn[2].classList.add('category-selected')
+
+        } else if ( categoryBtn[2].classList.contains('category-selected') ) {
+            categoryBtn[2].classList.remove('category-selected')
+            categoryBtn[3].classList.add('category-selected')
+
+        } else if ( categoryBtn[3].classList.contains('category-selected') ) {
+            categoryBtn[3].classList.remove('category-selected')
+            categoryBtn[4].classList.add('category-selected')
+
+        } else if ( categoryBtn[4].classList.contains('category-selected') ) {
+            categoryBtn[4].classList.remove('category-selected')
+            categoryBtn[5].classList.add('category-selected')
+        } else if ( categoryBtn[5].classList.contains('category-selected') ) {
+            categoryBtn[5].classList.remove('category-selected')
+            categoryBtn[0].classList.add('category-selected')
+        }
+        
+
+
+
+        // categoryBtn.forEach((item, index) => {
+        //     console.log(
+        //         item.classList.contains('category-selected'),
+        //         index
+        //     )
+        //     if( index === 0 && item.classList.contains('category-selected') ) {
+        //         console.log(0)
+        //         item.classList.remove('category-selected')
+        //         categoryBtn[1].classList.add('category-selected')
+        //     } else if ( index === 1 && item.classList.contains('category-selected') ) {
+        //         console.log(1)
+        //         item.classList.remove('category-selected')
+        //         categoryBtn[2].classList.add('category-selected')
+        //     } else if ( index === 2 && item.classList.contains('category-selected') ) {
+        //         console.log(2)
+        //         item.classList.remove('category-selected')
+        //         categoryBtn[3].classList.add('category-selected')
+        //     } else if ( index === 3 && item.classList.contains('category-selected') ) {
+        //         console.log(3)
+        //         item.classList.remove('category-selected')
+        //         categoryBtn[4].classList.add('category-selected')
+        //     } else if ( index === 4 && item.classList.contains('category-selected') ) {
+        //         console.log(4)
+        //         item.classList.remove('category-selected')
+        //         categoryBtn[5].classList.add('category-selected')
+        //     } else if ( index === 5 && item.classList.contains('category-selected') ) {
+        //         console.log(5)
+        //         item.classList.remove('category-selected')
+        //         categoryBtn[0].classList.add('category-selected')
+        //     }
+        // })
     }
 
 
-    // reviewSectionTag()
-    setInterval(reviewSectionTag,2000)
-    setInterval(shoppingSectionThumb,2000)
-    // setInterval(categorySectionList,2000)
 
-    // shoppingSectionThumb()
+    setInterval(reviewSectionTag,2000)
+    setInterval(shoppingSectionThumb,2000)    
+    setInterval(categorySectionList,2000)
+
+
+    
+
+
+    $('.contents-slides').slick({
+        autoplay: true, //자동자생
+        autoplaySpeed: 3200,    //자동재생 시간
+        infinite: true, //  무한반복
+        dots: false,    //네비게이션 
+        arrows: false,  //화살표
+        vertical: false, //세로모드
+        slidesToShow: 1,
+    })
+
+    $('.contents-list').slick({
+        autoplay: true, //자동자생
+        autoplaySpeed: 3100,    //자동재생 시간
+        infinite: true, //  무한반복
+        dots: false,    //네비게이션 
+        arrows: false,  //화살표
+        vertical: false, //세로모드
+        slidesToShow: 2,
+    })
+
+    $('.contents-slides').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+
+        // console.log('slick : ', slick)
+        // console.log('currentSlide : ', currentSlide)
+
+
+        // document.querySelectorAll('.contents-list .contents-item').forEach((item, index) => {
+
+        //     if( index === 0 && item.classList.contains('contents-position0') ) {
+        //         console.log(item)
+        //     }
+
+        //     if( item.classList.contains('contents-position0') ) {
+        //         item.classList.remove('contents-position0')
+        //         item.classList.add('contents-position1')
+        //     } else if ( item.classList.contains('contents-position1') ) {
+        //         item.classList.remove('contents-position1')
+        //         item.classList.add('contents-position3')
+        //     } else if ( item.classList.contains('contents-position2') ) {
+        //         item.classList.remove('contents-position2')
+        //         item.classList.add('contents-position0')
+        //     } else if ( item.classList.contains('contents-position3') ) {
+        //         item.classList.remove('contents-position3')
+        //         item.classList.add('contents-position2')
+        //     }
+        // })
+        // console.log(contentsItem[currentSlide])
+
+        // if ( currentSlide === 0 ) {
+        //     contentsItem[currentSlide].classList.add('contents-position1')
+        // }
+        
+    })
+
+    $('.contents-slides').on('afterChange', function(event, slick, currentSlide, nextSlide){
+        // console.log('nextSlide : ', nextSlide)
+        // $('.contents-list').slick('slickPause');    // 정지
+        // if( nextSlide === 0 ) {
+        //     console.log(0)
+        //     $('.contents-list').slick('goTo', 1);    // slick('goTo', index ) index는 0부터 시작이다
+        // } else if ( nextSlide === 1 ) {
+        //     console.log(1)
+        //     $('.contents-list').slick('goTo', 2);    // slick('goTo', index ) index는 0부터 시작이다
+
+        // } else if ( nextSlide === 2 ) {
+        //     console.log(2)
+        //     $('.contents-list').slick('goTo', 0);    // slick('goTo', index ) index는 0부터 시작이다
+        // }
+    })
+
+
+    
+    
+
+
+
+    
 });
