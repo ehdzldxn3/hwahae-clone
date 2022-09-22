@@ -387,7 +387,7 @@ header {
 .review-inner .review-card-section {
     min-width: 360px;
     height: 680px;
-    margin: 0 !important;
+    /* margin: 0 !important; */
     width: 250px;
 }
 
@@ -467,7 +467,6 @@ video {
     height: 50px;
     background: #22d3d6;
     border-radius: 30px;
-
     transition: 1s;
 }
 
@@ -708,9 +707,14 @@ video {
 }
 
 .product-ranking .rang-hgroup {
-    width: 39%;
+    width: 50%;
     overflow: hidden;
     padding-left: 110px;
+
+    display: flex;
+    justify-content: right;
+    /* float: right; */
+    /* justify-content: end; */
 
     /* 임시 */
     /* border: 1px solid black; */
@@ -718,23 +722,26 @@ video {
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
+    
 }
 
 .rang-hgroup .ranking-title  {
     font-size: 52px;
     transition: 2s;
+    /* text-align: left; */
 }
 
 .rang-hgroup .ranking-inner {
     padding-top: 30px;
     font-size: 18px;
     transition: 2s;
+    /* text-align: left; */
 }
 
 
 
 .product-ranking .rank-inner {
-    width: 61%;
+    width: 50%;
 
 
     height: 100%;
@@ -1145,3 +1152,50 @@ video {
 .footer-privacy {
     padding-top: 20px;
 }
+
+.footer-privacy a{
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.footer-privacy p{
+    padding-top: 10px;
+    /* font-size: 22px; */
+    /* font-weight: bold; */
+}
+
+.footer-share {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+}
+
+.footer-share .footer-share-list {
+    display: flex;
+}
+.footer-share-list .share-list-item {
+    padding-right: 10px;
+}
+.share-list-item .share-list-link{
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+
+
+.share-list-link.facebook{
+    background: url('https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/icon_facebook.png') no-repeat 0 0;
+    background-size: cover;
+}
+
+.share-list-link.blog{
+    background: url('https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/icon_blog.png') no-repeat 0 0;
+    background-size: cover;
+}
+.share-list-link.instagram{
+    background: url('https://hwahae-homepage.s3.ap-northeast-2.amazonaws.com/images/icon_instagram.png') no-repeat 0 0;
+    background-size: cover;
+}
+
